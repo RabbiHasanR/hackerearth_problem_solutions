@@ -1,0 +1,6 @@
+https://learnsql.com/blog/sql-having-vs-where/
+https://learnsql.com/track/sql-practice
+https://learnsql.com/blog/what-is-null-in-sql/
+https://learnsql.com/blog/sql-subquery-for-beginners/
+https://learnsql.com/blog/sql-subquery-types/
+https://hasura.io/learn/database/postgresql/core-concepts/6-postgresql-relationships/
