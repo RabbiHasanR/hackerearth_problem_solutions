@@ -1,0 +1,5 @@
+docer command question
+django middleware question and vulnerability question
+posgresql query and qustion
+python problem solving question
+postgresq query problem question
