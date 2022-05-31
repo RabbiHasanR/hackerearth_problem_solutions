@@ -119,3 +119,8 @@ where actor_name in (select actor from staring_movies
 order by age desc, actor_name asc;
 ```
 
+# Use distinct. distinct means different value 
+
+```sql
+select distinct genre from movies;
+```
