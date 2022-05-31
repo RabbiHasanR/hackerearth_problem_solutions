@@ -124,3 +124,16 @@ order by age desc, actor_name asc;
 ```sql
 select distinct genre from movies;
 ```
+
+# All Select Operation
+
+```sql
+select actor_name from actors where age > 35;
+select actor_name from actors where age <35;
+select actor_name from actors where age >= 35;
+select actor_name from actors where age <=35;
+select actor_name from actors where age <> 35;
+select actor_name from actors where age between 30 and 40;
+select actor_name from actors where actor_name in (select actor from staring_movies where movie ="Movie A");
+select actor_name from actors where actor_name like "B%";
+```
