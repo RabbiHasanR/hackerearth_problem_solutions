@@ -1,5 +1,6 @@
 # Create Table And Insert Row Query
 
+```sql
 create table users (user_id INT, name varchar(100), age int, 
                     salary numeric default 0, primary key(user_id), type varchar(100) default null);
 		insert into users (user_id, name, age, salary) values (1, 'albert einstein', 40, 40000.00);
@@ -7,9 +8,11 @@ create table users (user_id INT, name varchar(100), age int,
 		insert into users (user_id, name, age, salary) values (3, 'Shanto Shakil', 26, 38000.00);
         insert into users (user_id, name, age, salary) values (4, 'Intishar', 27, 28000.00);
         insert into users (user_id, name, age, salary) values (5, 'Shaon', 28, 22000.00);
+```
 
 # Create Table With Foreign Key Relationship
 
+```sql
 create table employes (employe_id INT, user_id INT, PRIMARY KEY(employe_id),
    CONSTRAINT fk_user
       FOREIGN KEY(user_id) 
@@ -19,45 +22,100 @@ create table employes (employe_id INT, user_id INT, PRIMARY KEY(employe_id),
         insert into employes (employe_id, user_id) values (3, 4);
         insert into employes (employe_id, user_id) values (4, 3);
         insert into employes (employe_id, user_id) values (5, 5);
+```
 
 
 # Aggrigation Query
 
+```sql
 select sum(salary) as salary_sum, min(age) as minimum_age,
 max(salary) as maximum_salary from users;
+```
 
 # Nested Query 
 
+```sql
 select name as employe_name from users where user_id in (select user_id from employes);
+```
 
 # Changes or update data in table
 
+```sql
 update users set type='Parmanent' where user_id in (select user_id from employes);
+```
 
 # Display change users name and type query
+
+```sql
 select name as employe_name, type as type  from users where user_id in (select user_id from employes);
+```
 
 # Delete row from table and display all data from table query
 
+```sql
 delete from users where type='Intern';
 
 select * from users;
+```
 
 
 # Create view and display view data
 
+```sql
 CREATE VIEW null_user AS
 SELECT user_id, name
 FROM users
 WHERE user_id = 5;
 
 select user_id, name from null_user;
+```
 
 # null use in query
+
+```sql
 CREATE VIEW null_user AS
 SELECT user_id, name
 FROM users
 WHERE type is null;
 
 select user_id, name from null_user;
+```
+
+
+
+# sub query with IN, Order by and group by
+
+```sql
+create table movies (movie varchar(100), genre varchar(100));
+		insert into movies (movie, genre) values ('Movie A', 'Action');
+        insert into movies (movie, genre) values ('Movie B', 'Crime');
+        insert into movies (movie, genre) values ('Movie C', 'Action');
+        insert into movies (movie, genre) values ('Movie D', 'Thriller');
+        insert into movies (movie, genre) values ('Movie E', 'Thriller');
+        insert into movies (movie, genre) values ('Movie F', 'Thriller');
+        
+create table staring_movies (actor varchar(100), movie varchar(100));
+		insert into staring_movies (actor, movie) values ('Actor A', 'Movie A');
+        insert into staring_movies (actor, movie) values ('Actor B', 'Movie B');
+        insert into staring_movies (actor, movie) values ('Actor A', 'Movie A');
+        insert into staring_movies (actor, movie) values ('Actor D', 'Movie E');
+        insert into staring_movies (actor, movie) values ('Actor E', 'Movie F');
+        insert into staring_movies (actor, movie) values ('Actor F', 'Movie G');
+        insert into staring_movies (actor, movie) values ('Actor D', 'Movie H');
+        insert into staring_movies (actor, movie) values ('Actor E', 'Movie I');
+                                                          
+                                                          
+create table actors (actor_name varchar(100), age int);
+		insert into actors (actor_name, age) values ('Actor A', '52');
+        insert into actors (actor_name, age) values ('Actor B', '35');
+        insert into actors (actor_name, age) values ('Actor D', '25');
+        insert into actors (actor_name, age) values ('Actor E', '52');
+        insert into actors (actor_name, age) values ('Actor F', '45');
+
+select actor_name, age from actors
+where actor_name in (select actor from staring_movies
+                     where movie in (select movie from movies group by genre)
+                     )
+order by age desc, actor_name asc;
+```
 
