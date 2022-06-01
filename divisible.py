@@ -1,6 +1,6 @@
 def solve (A, N):
     # Write your code here
-    middle = int(N / 2)
+    middle = int( N / 2)
     first_digits = [int(str(i)[0])for i in A[:middle]]
     second_digits = [int(str(i)[-1])for i in A[middle:]]
     number_one = ''.join([str(i) for i in first_digits])
