@@ -1,0 +1,36 @@
+Question1:
+
+function getName(name) {
+    return name.firstName+ ' ' + name.lastName.toLowerCase();
+}
+
+const myname = {
+    firstName: 'Bob',
+    lastName: 'Dylan'
+}
+
+const element = {
+    <h1>
+        This is {getName(myname)}
+    </h1>
+}
+
+React.render(element, document.body)
+
+
+What is the output above code?
+
+
+Question2:
+
+What is the output of  the following Python code:
+
+class A:
+    def __init__(s):
+        self.s = s
+    
+    def print():
+        pass
+
+a = A('Jhon')
+a.print()
